@@ -7,9 +7,9 @@
 class ClapTrap {
 	private:
 		std::string _name;
-		int	_Hp = 10;
-		int	_Ep = 10;
-		int	_Damage = 0;
+		int	_Hp;
+		int	_Ep;
+		int	_Damage;
 	public:
 		ClapTrap();
 		ClapTrap(const std::string _name);
@@ -19,7 +19,11 @@ class ClapTrap {
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+		std::string getName();
+		void setDamage(unsigned int amount);
+		int getDamage();
 
+};
 /*When ClapTrack attacks, it causes its target to lose <attack damage> hit points.
 When ClapTrap repairs itself, it gets <amount> hit points back. Attacking and repairing
 cost 1 energy point each. Of course, ClapTrap can’t do anything if it has no hit points
@@ -33,8 +37,5 @@ can easily see they have been called.
 Implement and turn in your own tests to ensure your code works as expected.
 6
 */
-
-};
-
 
 #endif

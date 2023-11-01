@@ -10,12 +10,9 @@ FLAGS    := -Wall -Wextra -Werror -std=c++98
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        =      main.cpp Fixed.cpp\
+SRCS        =      main.cpp ClapTrap.cpp\
                           
 OBJS        := ${SRCS:.cpp=.o}
-
-.cpp.o:
-	${CC} ${FLAGS} -c $< -o ${<:.cpp=.o}
 
 ################################################################################
 #                                  Makefile  objs                              #
