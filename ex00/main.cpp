@@ -7,6 +7,10 @@ int main (void) {
 	CTrap1->setDamage(5);
 	CTrap1->attack(CTrap2->getName());
 	CTrap2->takeDamage(CTrap1->getDamage());
+	CTrap1->attack(CTrap2->getName());
+	CTrap2->takeDamage(CTrap1->getDamage());
+	CTrap1->attack(CTrap2->getName());
+	CTrap2->takeDamage(CTrap1->getDamage());
 
 	return (0);
 }

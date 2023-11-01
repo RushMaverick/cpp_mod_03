@@ -39,18 +39,42 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
 }
 
 void ClapTrap::attack(const std::string& target) {
-	std::cout << this->_name << " attacks " << target \
-		<< ", causing " << this->_Damage << " points of damage!" << std::endl;
+	if (this->_Hp <= 0){
+		std::cout << "\033[35m" << this->_name << " is DEAD. DEAD I TELL YOU!!" << "\033[0m" << std::endl;
+		return;
+	}
+	if (this->_Ep > 0){
+		std::cout << this->_name << " attacks " << target \
+			<< ", causing " << this->_Damage << " points of damage!" << std::endl;
+		this->_Ep--;
+	}
+	else
+		std::cout << this->_name << " is out of energy." << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
+	if (this->_Hp <= 0) {
+		std::cout << "\033[35mStop beating a dead ClapTrap.\033[0m" << std::endl;
+		return;
+	}
 	this->_Hp -= amount;
 	std::cout << this->_name << " has " << this->_Hp << " hit points left." << std::endl;
+	if (this->_Hp > 0)
+		std::cout << "\033[33m" << this->_name << ": " << "\033[0m" << "\033[32m\"Ha ha ha! I LIVE! Hahaha!\"\033[0m" << std::endl;
+	else
+		std::cout << "\033[33m" << this->_name << ": " << "\033[0m" << "\033[31m\"I'll die the way I lived: annoying!\"\033[0m" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-	this->_Hp += amount;
-	std::cout << this->_name << " heals for " << this->_Hp << " hit points." << std::endl;
+	if (this->_Hp <= 0){
+		std::cout << "\033[35m" << this->_name << " is DEAD. DEAD I TELL YOU!!" << "\033[0m" << std::endl;
+		return;
+	}
+	if (this->_Ep > 0) {
+		this->_Hp += amount;
+		this->_Ep--;
+		std::cout << "\033[33m" << this->_name << ": " << "\033[0m" << "\033[33m" << " heals for " << this->_Hp << " hit points." << "\033[0m" << std::endl;
+	}
 }
 
 std::string ClapTrap::getName() {
