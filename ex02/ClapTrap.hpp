@@ -5,7 +5,7 @@
 #include <string>
 
 class ClapTrap {
-	private:
+	protected:
 		std::string _name;
 		int	_Hp;
 		int	_Ep;
@@ -24,5 +24,6 @@ class ClapTrap {
 		int getDamage();
 
 };
+
 
 #endif
