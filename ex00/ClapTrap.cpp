@@ -5,6 +5,7 @@ ClapTrap::ClapTrap() {
 	this->_Hp = 10;
 	this->_Ep = 10;
 	this->_Damage = 0;
+	this->_name = "Default";
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name){
@@ -73,8 +74,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->_Ep > 0) {
 		this->_Hp += amount;
 		this->_Ep--;
-		std::cout << "\033[33m" << this->_name << ": " << "\033[0m" << "\033[33m" << " heals for " << this->_Hp << " hit points." << "\033[0m" << std::endl;
+		std::cout << "\033[33m" << this->_name << "\033[0m" << "\033[33m" << " heals for " << amount << " hit points." << "\033[0m" << std::endl;
 	}
+	else
+		std::cout << this->_name << " is out of energy." << std::endl;
 }
 
 std::string ClapTrap::getName() {
