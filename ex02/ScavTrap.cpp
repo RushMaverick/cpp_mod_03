@@ -39,6 +39,20 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other) {
 	return (*this);
 }
 
+void ScavTrap::attack(const std::string& target) {
+	if (this->_Hp <= 0){
+		std::cout << "\033[33m" << "ScavTrap " << this->_name << "\033[0m" << "\033[35m" <<" is DEAD. DEAD I TELL YOU!!" << "\033[0m" << std::endl;
+		return;
+	}
+	if (this->_Ep > 0){
+		std::cout << "\033[33m" << "ScavTrap " << this->_name << "\033[0m" << " attacks " << "\033[33m" << target << "\033[0m" \
+			<< ", causing " << this->_Damage << " points of damage!" << std::endl;
+		this->_Ep--;
+	}
+	else
+		std::cout << "ScavTrap " << "\033[33m" << this->_name << "\033[0m" << " is out of energy." << std::endl;
+}
+
 void ScavTrap::guardGate() {
 	if (this->_Hp <= 0) {
 		std::cout << "\033[33m" << this->_name << "\033[0m" \

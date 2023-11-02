@@ -22,7 +22,6 @@ class ClapTrap {
 		std::string getName();
 		void setDamage(unsigned int amount);
 		int getDamage();
-
 };
 
 
