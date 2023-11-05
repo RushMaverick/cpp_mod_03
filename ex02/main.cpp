@@ -9,5 +9,19 @@ int main(void){
 
 	FTrap.highFivesGuys();
 	STrap.guardGate();
+	STrap.attack(FTrap.getName());
+	STrap.attack(FTrap.getName());
+	FTrap.attack(STrap.getName());
+	STrap.takeDamage(FTrap.getDamage());
+	FTrap.attack(STrap.getName());
+	STrap.takeDamage(FTrap.getDamage());
+	FTrap.attack(STrap.getName());
+	STrap.takeDamage(FTrap.getDamage());
+	FTrap.attack(STrap.getName());
+	STrap.takeDamage(FTrap.getDamage());
+	FTrap.attack(STrap.getName());
+	STrap.takeDamage(FTrap.getDamage());
+	CTrap.attack(FTrap.getName());
+	CTrap.attack(FTrap.getName());
 	return 0;
 }
